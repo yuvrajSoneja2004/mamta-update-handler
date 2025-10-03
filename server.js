@@ -60,7 +60,7 @@ app.get("/update/:version", (req, res) => {
 // Endpoint to download the update file
 app.get("/download-update", (req, res) => {
   try {
-    const filePath = path.join(__dirname, "latest.exe");
+    const filePath = path.join(__dirname, "latest.msi");
 
     // Check if the file exists
     if (!fs.existsSync(filePath)) {
@@ -71,7 +71,7 @@ app.get("/download-update", (req, res) => {
     }
 
     // Set headers for file download
-    res.setHeader("Content-Disposition", 'attachment; filename="latest.exe"');
+    res.setHeader("Content-Disposition", 'attachment; filename="latest.msi"');
     res.setHeader("Content-Type", "application/octet-stream");
 
     // Stream the file to the client
